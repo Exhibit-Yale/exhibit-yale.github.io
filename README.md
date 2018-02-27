@@ -1,0 +1,5 @@
+- Failing on downloaded binaries
+- Thought it was due to sleep time too short
+- Pulled down Kyle's grading repo, got compilation error due to no specification of time
+- Changed time to 0
+- Passes all test I expected to pass
