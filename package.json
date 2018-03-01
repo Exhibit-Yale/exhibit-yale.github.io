@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "prod": "concurrently --kill-others-on-fail \"npm start\" \"npm start --prefix client/\"",
-    "start": "PORT=3001 node app.js",
-    "preinstall": "npm install --prefix client/"
+    "start": "node app.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
