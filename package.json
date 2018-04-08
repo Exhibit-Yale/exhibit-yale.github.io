@@ -1,7 +1,12 @@
 {
     "title": "Landing Page",
-    "name": "startbootstrap-landing-page",
+    "name": "Exhibit",
     "version": "4.0.0",
+    "scripts": {
+      "prod": "concurrently --kill-others-on-fail \"npm start\" \"npm start --prefix client/\"",
+      "start": "node app.js",
+      "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    },
     "description": "An HTML landing page template built with Bootstrap",
     "keywords": [
         "css",
@@ -29,7 +34,18 @@
         "bootstrap": "4.0.0",
         "font-awesome": "4.7.0",
         "jquery": "3.3.1",
-        "simple-line-icons": "^2.4.1"
+        "simple-line-icons": "^2.4.1",
+        "body-parser": "~1.18.2",
+        "concurrently": "^3.5.1",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.6.9",
+        "express": "~4.15.5",
+        "jade": "~1.11.0",
+        "morgan": "~1.9.0",
+        "pg": "7.4.1",
+        "pg-promise": "^8.0.0",
+        "serve-favicon": "~2.4.5",
+        "uuid": "^3.2.1"
     },
     "devDependencies": {
         "browser-sync": "2.23.6",
@@ -38,5 +54,4 @@
         "gulp-header": "2.0.1",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^3.1.0"
-    }
-}
+    }}
