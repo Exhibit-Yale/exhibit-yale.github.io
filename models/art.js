@@ -1,14 +1,33 @@
 getAllArt = (db) => {
   return new Promise((resolve, reject) => {
     db.query(
-      'SELECT art.id as artid, artist.name as artistName, artist.picture_link as artistPicture, art.name as artName, art.is_available, art.picture_link as artPicture FROM artist INNER JOIN art ON artist.id = art.artist_id'
+      'SELECT art.id as id, artist.name as artist_name, artist.picture_link as pfp, art.name as art_name, art.is_available, art.picture_link as art_picture FROM artist INNER JOIN art ON artist.id = art.artist_id'
+    ).then(resp => {
+      console.log(resp);
+      resolve(resp.rows.map(row => ({
+        id: row.id,
+        artistName: row.artist_name,
+        artName: row.art_name,
+        pfp: row.pfp,
+        picture: row.art_picture,
+        is_available: row.is_available
+      })));
+    })
+    .catch(err => reject('Query to get tasks failed'));
+  })
+}
+
+getArtByArtist = (db, artistId) => {
+  console.log(artistId);
+  return new Promise((resolve, reject) => {
+    db.query(
+      'SELECT id, name, picture_link as art_picture, is_available WHERE artist_id = $1',
+      [artistId]
     ).then(resp => {
       resolve(resp.rows.map(row => ({
         id: row.id,
-        artistname: row.artistName,
-        artname: row.artName,
-        pfp: row.artistPicture,
-        picture: row.artPicture,
+        artName: row.art_name,
+        picture: row.art_picture,
         is_available: row.is_available
       })));
     })
@@ -17,5 +36,6 @@ getAllArt = (db) => {
 }
 
 module.exports = {
-  getAllArt
+  getAllArt,
+  getArtByArtist
 }
