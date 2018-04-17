@@ -3,9 +3,9 @@
     "name": "Exhibit",
     "version": "4.0.0",
     "scripts": {
-      "prod": "concurrently --kill-others-on-fail \"npm start\" \"npm start --prefix client/\"",
-      "start": "node app.js",
-      "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+        "prod": "concurrently --kill-others-on-fail \"npm start\" \"npm start --prefix client/\"",
+        "start": "node app.js",
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
     "description": "An HTML landing page template built with Bootstrap",
     "keywords": [
@@ -53,5 +53,8 @@
         "gulp-clean-css": "3.9.2",
         "gulp-header": "2.0.1",
         "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0"
-    }}
+        "gulp-sass": "^3.1.0",
+        "react-svg-loader": "^2.1.0",
+        "svg-react-loader": "^0.4.5"
+    }
+}
