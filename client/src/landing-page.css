@@ -51,6 +51,16 @@ header.masthead h1 {
   }
 }
 
+.company-name {
+  color: #6c63ff;
+  font-size: 28px;
+}
+
+.audience-toggle a {
+  color: #6c63ff;
+  margin: 16px;
+}
+
 .showcase .showcase-text {
   padding: 3rem;
 }
@@ -134,10 +144,6 @@ header.masthead h1 {
 svg {
     width: 150px;
     height: 150px;
-}
-
-.company-name {
-    color: #6c63ff;
 }
 
 .sign-up-btn {
