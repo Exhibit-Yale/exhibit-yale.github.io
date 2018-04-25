@@ -8,6 +8,30 @@ router.get('/', (req, res) => {
   const db = req.app.get('db');
 
   artModels.getAllArt(db)
+  .then(arts => {
+    console.log(arts);
+    res.json({ arts: arts });
+  })
+  .catch(err => res.status(400).send({ error: err }));
+})
+
+/* GET returns art by artist id */
+router.get('/byArtist', (req, res) => {
+  const db = req.app.get('db');
+
+  artModels.getAllArt(db)
+  .then(arts => {
+    console.log(arts);
+    res.json({ arts: arts });
+  })
+  .catch(err => res.status(400).send({ error: err }));
+})
+
+/* GET returns art details by id */
+router.get('/details', (req, res) => {
+  const db = req.app.get('db');
+
+  artModels.getArtDetails(db)
   .then(art => {
     console.log(art);
     res.json({ art: art });

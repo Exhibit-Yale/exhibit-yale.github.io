@@ -14,7 +14,7 @@ class ArtistLandingPage extends Component {
             <div className="row">
               <div className="col-xl-9 mx-auto">
                 <p className="mb-5 slogan">artists, come get paid!</p>
-                <p className="mb-5 slogan-subtext">sell your art to Yalies on Exhibit. Well handle the business side 😉</p>
+                <p className="mb-5 slogan-subtext">sell your art to Yalies on Exhibit. we'll handle the business side 😉</p>
               </div>
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
                   <div className="btn btn-primary sign-up-btn"><a href="https://ryanlim4.typeform.com/to/ODteOA" target="_blank">Sell your art now!</a></div>
@@ -97,47 +97,6 @@ class ArtistLandingPage extends Component {
             </div>
           </div>
         </section>
-
-        <section className="call-to-action text-white text-center">
-          <div className="overlay"></div>
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-9 mx-auto">
-                <h2 className="mb-4">Ready to get started? Sign up now!</h2>
-              </div>
-              <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                <form>
-                  <div className="form-row">
-                    <div className="col-12 col-md-9 mb-2 mb-md-0">
-                      <input type="email" className="form-control form-control-lg" placeholder="Enter your email..." />
-                    </div>
-                    <div className="col-12 col-md-3">
-                      <button type="submit" className="btn btn-block btn-lg btn-primary">Sign up!</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <footer className="footer">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 h-100 text-center text-lg-left my-auto">
-                <ul className="list-inline mb-2">
-                  <li className="list-inline-item">
-                    <a href="mailto:tevin@mickens.yale.edu" target="_blank">Talk to Us!</a>
-                  </li>
-                </ul>
-                <p className="mb-4 mb-lg-0">&copy; Exhibit 2018. All Rights Reserved.</p>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
       </div>
     );
