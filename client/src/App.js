@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ArtistLandingPage from './ArtistLandingPage';
 import ArtPage from './ArtPage';
+import ConsumerLandingPage from './ConsumerLandingPage';
+import ArtistPage from './ArtistPage';
 
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -24,7 +26,7 @@ class App extends Component {
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp);
-      this.setState({ art: resp.art});
+      this.setState({ arts: resp.arts});
     })
     .catch(err => console.log(err));
   }
@@ -95,9 +97,26 @@ class App extends Component {
           </div>
         </nav>
         {audience === 'artist' ? 
-          <ArtistLandingPage /> : 
-          (<div>This is the consumer landing page</div>)
+          <ArtistLandingPage /> : <ConsumerLandingPage />
         }
+      
+        <footer className="footer">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <ul className="list-inline mb-2">
+                  <li className="list-inline-item">
+                    <a href="mailto:tevin@mickens.yale.edu" target="_blank">Talk to Us!</a>
+                  </li>
+                </ul>
+                <p className="mb-4 mb-lg-0">&copy; Exhibit 2018. All Rights Reserved.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       </div>
     )
 ;

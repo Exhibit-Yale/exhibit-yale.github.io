@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class ArtPage extends Component {
+class ArtistPage extends Component {
   // artId = {id: str}
   constructor(props) {
     super(props);
-    this.art = this.props.art;
+    //art = this.props.art;
     // // TODO test
     // art.picture = 'https://photos-4.dropbox.com/t/2/AABwPAcQUWbochoMe3-qfxsG7GBnBbbOQ1Hf25Vt3nNNCQ/12/102326941/jpeg/32x32/1/_/1/2/Julia%20Cai%20-%20IMG_1809.jpg/EInuoU8Y1PAQIAcoBw/TpvMZmj-d04gbL8xFePglRuRtNNGv1rHCzn0_OOIrJs?size=32x32&size_mode=5';
     // art.artName = 'untitled';
@@ -12,7 +12,7 @@ class ArtPage extends Component {
 
   componentDidMount = () => {
     console.log('componentDidMount');
-    fetch('/art/details?id=' + this.props.artId)
+    fetch('/artist/details?id=' + this.props.artistId)
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp);
@@ -51,4 +51,4 @@ class ArtPage extends Component {
   }
 }
 
-export default ArtPage;
+export default ArtistPage;

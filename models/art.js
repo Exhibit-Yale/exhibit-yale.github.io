@@ -35,7 +35,29 @@ getArtByArtist = (db, artistId) => {
   })
 }
 
+getArtDetails = (db, artId) => {
+  console.log(artId);
+  // TODO fix this for 1 row
+  return new Promise((resolve, reject) => {
+    db.query(
+      'SELECT art.id as id, artist.name as artist_name, artist.picture_link as pfp, art.name as art_name, art.is_available, art.picture_link as art_picture FROM artist INNER JOIN art ON artist.id = art.artist_id WHERE art.id = $1'
+      [artId]
+    ).then(resp => {
+      resolve(resp.rows.map(row => ({
+        id: row.id,
+        artName: row.art_name,
+        picture: row.art_picture,
+        is_available: row.is_available,
+        artistName: row.artist_name,
+        pfp: row.pfp
+      })));
+    })
+    .catch(err => reject('Query to get tasks failed'));
+  })
+}
+
 module.exports = {
   getAllArt,
-  getArtByArtist
+  getArtByArtist,
+  getArtDetails
 }

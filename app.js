@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var user = require('./routes/user');
 var tasks = require('./routes/tasks');
 var art = require('./routes/art');
+var consumer = require('./routes/consumer');
 
 var app = express();
 
@@ -31,8 +32,8 @@ app.use(express.static(path.join(__dirname, 'client/build')))
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -40,6 +41,7 @@ app.use('/', index);
 app.use('/user', user);
 app.use('/tasks', tasks);
 app.use('/art', art);
+app.use('/consumer', consumer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
