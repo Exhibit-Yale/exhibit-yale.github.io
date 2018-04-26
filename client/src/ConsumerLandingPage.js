@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import TransactionPage from './TransactionPage';
+import Showcase from './Showcase';
 
 class ConsumerLandingPage extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      email: ''
+      email: '',
+      artists: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
+  componentDidMount() {
+    console.log('componentDidMount');
+    fetch('/artist')
+      .then(resp => resp.json())
+      .then(resp => {
+        this.setState({ artists: resp.artists });
+      })
+      .catch(console.log)
+  }
+  
   handleChange(event) {
     this.setState({email: event.target.value});
   }
@@ -34,6 +47,7 @@ class ConsumerLandingPage extends Component {
   }
 
   render() {
+    const { artists } = this.state;
     return (
       <div>
         <header className="masthead text-white text-center">
@@ -60,11 +74,13 @@ class ConsumerLandingPage extends Component {
           </div>
         </header>
 
-        <section className="features-icons bg-light text-center">
-          <div className="container">
-            <p className="slogan-subtext">Check back soon for more info!</p>
-          </div>
-        </section>
+        <div className="artist-container">
+          {artists.map(artist => (
+            <div key={artist.id}>
+              <Showcase artistId={artist.id}/>
+            </div>
+          ))}
+        </div>
 
         <section className="testimonials text-center bg-light">
           <div className="container">

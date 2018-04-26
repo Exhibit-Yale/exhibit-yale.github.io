@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      audience: 'artist', // ['artist', 'patron']
+      audience: 'patron', // ['artist', 'patron']
       art: [] // [{ id: str, artistName: str, pfp: str (link), picture: str (link), is_available: bool }]
     }
   }
