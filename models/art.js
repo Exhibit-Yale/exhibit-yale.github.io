@@ -36,7 +36,7 @@ getArtDetails = (db, artId) => {
   console.log(artId);
   return new Promise((resolve, reject) => {
     db.query(
-      'SELECT id, artist_id, name, description, is_available, picture_link as art_picture FROM art WHERE id = $1',
+      'SELECT id, artist_id, name, description, is_available, picture_link, price FROM art WHERE id = $1',
       [artId] 
     ).then(resp => {
       resolve(resp.rows[0]);

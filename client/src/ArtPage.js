@@ -5,15 +5,14 @@ class ArtPage extends Component {
   // artId = {id: str}
   constructor(props) {
     super(props);
-    this.artId = this.props.artId
     this.state = {
-      art: {}
+      art: null
     }
   }
 
   componentDidMount = () => {
     console.log('componentDidMount');
-    fetch('/art/details?id=' + this.artId)
+    fetch('/art/details?id=' + this.props.artId)
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp);
@@ -27,32 +26,34 @@ class ArtPage extends Component {
   }
 
   render() {
-    console.log("render")
-    console.log(this.state.art)
-    return (
-      <div>
-        <section className="hero text-center bg-light">
+    const { art } = this.state;
+    return art && 
+    (
+      <div className="art-page">
+        <section className="art-page-hero hero text-center bg-light">
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
-                  <img className="img-fluid mb-3" src={this.state.art.art_picture} />
+                  <img className="img-fluid mb-3" src={art.picture_link} />
               </div>
-              <div className="col-lg-6">
+              <div className="art-page-title col-lg-6">
                 <div>
-                  <h4>{this.state.art.name}</h4>
+                  <h1>{art.name}</h1>
                 </div>
                 <div>
-                  <h5>{this.state.art.description}</h5>
+                  <h5>{art.description}</h5>
                 </div>
                 <div>
-                  <h5>Price: ${15 /*TODO fix*/}</h5>
+                  <h5>Price: ${art.price}</h5>
                 </div>
                 <div className="btn btn-primary sign-up-btn" onClick={this.handleClick}>Buy now!</div>
               </div>
             </div>
           </div>
         </section>
-      {this.state.art.artist_id && <Showcase artistId={this.state.art.artist_id} />}
+        <div className="art-page-showcase">
+          <Showcase artistId={art.artist_id} showArtist={false}/>
+        </div>
       </div>
     );
   }

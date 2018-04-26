@@ -10,7 +10,7 @@ class Showcase extends Component {
     super(props);
     this.state = {
       art: [],
-      artist: {},
+      artist: {}
     }
   }
   
@@ -36,6 +36,7 @@ class Showcase extends Component {
 
   render() {
     const { art, artist } = this.state;
+    const { showArtist } = this.props;
     const sliderSettings = {
       arrows: true,
       dots: true,
@@ -45,11 +46,13 @@ class Showcase extends Component {
     
     return (
       <div className="showcase-container">
+        {showArtist && 
         <div className="showcase-bio">
           <h1>{artist.name}</h1>
           <p>{artist.bio}</p>
         </div>
-        <div className="showcase-carousel">
+        }
+        <div className={`showcase-carousel ${showArtist ? '' : 'showcase-no-artist'}`}>
           <Slider {...sliderSettings}>
             {art.map(art => {
               return (
@@ -67,7 +70,8 @@ class Showcase extends Component {
 }
 
 Showcase.propTypes = {
-    artistId: PropTypes.number.isRequired 
+    artistId: PropTypes.number.isRequired,
+    showArtist: PropTypes.bool.isRequired, 
 }
 
 export default Showcase;

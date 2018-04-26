@@ -77,7 +77,7 @@ class ConsumerLandingPage extends Component {
         <div className="artist-container">
           {artists.map(artist => (
             <div key={artist.id}>
-              <Showcase artistId={artist.id}/>
+              <Showcase artistId={artist.id} showArtist />
             </div>
           ))}
         </div>

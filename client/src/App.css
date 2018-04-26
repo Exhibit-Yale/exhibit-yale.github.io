@@ -22,7 +22,6 @@
 }
 
 .showcase-container {
-  width: 1000px;
   display: flex;
   flex-direction: row;
   /* border: 1px solid black; */
@@ -30,12 +29,13 @@
 }
 
 .showcase-bio {
-  padding: 36px;
+  padding: 36px 36px 36px 0;
   width: 30%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: right;
+  border-left: 1px solid grey;
 }
 
 .showcase-bio-pic {
@@ -45,6 +45,10 @@
 
 .showcase-carousel {
   width: 70%;
+}
+
+.showcase-carousel.showcase-no-artist {
+  width: 100%;
 }
 
 .showcase-img-container {
@@ -62,7 +66,29 @@
   font-size: 14px;
 }
 
+.art-page-hero {
+  padding: 20px 0;
+}
+
+.art-page-title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.art-page-title .btn {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.art-page-showcase {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .artist-container {
+  width: 80%;
+  margin: 0 auto;
 }
 
 @keyframes App-logo-spin {

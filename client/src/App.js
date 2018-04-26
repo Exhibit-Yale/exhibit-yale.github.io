@@ -30,51 +30,6 @@ class App extends Component {
     })
     .catch(err => console.log(err));
   }
-
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   console.log('componentDidUpdate');
-  //   const { email, isLoggedIn } = this.state;
-  //   if (isLoggedIn && !prevState.isLoggedIn) {
-  //     fetch('/tasks?email=' + email)
-  //     .then(resp => resp.json())
-  //     .then(resp => {
-  //       console.log(resp);
-  //       this.setState({ tasks: resp.tasks.sort(this.preferCompletion) });
-  //     })
-  //     .catch(err => console.log(err));
-  //   }
-  // }
-  createTask = (event) => {
-    // event.preventDefault();
-    // const { email, tasks } = this.state;
-    // const taskName = document.querySelector('.createTask .name').value;
-    // const taskDescription = document.querySelector('.createTask .description').value;
-    // const collaborators = [1,2,3].map(num => document.querySelector('.createTask .collaborator' + num).value).filter(email => email !== '');
-    // 
-    // fetch('/tasks/create', {
-    //   body: JSON.stringify({ taskName, taskDescription, collaborators, creator: email }),
-    //   headers: { 'content-type': 'application/json' },
-    //   method: 'POST'
-    // })
-    // .then(resp => resp.json())
-    // .then(resp => {
-    //   console.log(resp);
-    //   if (!resp.error) {
-    //     this.setState({
-    //       tasks: [...tasks, { id: resp.id, name: taskName, completed: false, isCreator: true }],
-    //       showCreateTaskError: false,
-    //       createTaskError: ''
-    //     })
-    //   }
-    //   else {
-    //     this.setState({
-    //       showCreateTaskError: true,
-    //       createTaskError: resp.error
-    //     });
-    //   }
-    // })
-    // .catch(err => this.setState( { showCreateTaskError: true, createTaskError: 'Server error' } ));
-  }
   
   toggleAudience = () => {
     const { audience } = this.state;
