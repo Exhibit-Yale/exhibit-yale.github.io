@@ -22,29 +22,35 @@ class ArtistPage extends Component {
   }
 
   render() {
+    const { artist } = this.state;
+    const { artistId } = this.props;
     return (
-      <div>
-        <section className="hero text-center bg-light">
+      <div className="artist-page">
+        <section className="artist-page-hero hero text-center bg-light">
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
-                  <img className="img-fluid mb-3" src={this.state.artist.pfp}/>
+                  <img className="img-fluid mb-3" src={artist.pfp}/>
               </div>
-              <div className="col-lg-6">
+              <div className="artist-page-title col-lg-6">
                 <div className="testimonial-item mx-auto mb-5 mb-lg-0">
-                  <h5>{this.state.artist.name}</h5>
+                  <h1 className="artist-page-name">{artist.name}</h1>
                 </div>
                 <div className="testimonial-item mx-auto mb-5 mb-lg-0">
-                  <h5>{this.state.artist.bio}</h5>
-                </div>
-                <div className="testimonial-item mx-auto mb-5 mb-lg-0">
-                {this.state.artist.insta && this.state.artist.insta.length > 0 && (<h5>Instagram: {this.state.artist.insta}</h5>)}
+                  <h5>{artist.bio}</h5>
+                { 
+                  artist.insta && 
+                  artist.insta.length > 0 && 
+                  (<h5>Instagram: {artist.insta}</h5>)
+                }
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <Showcase artistId={this.props.artistId} />
+        <div className="art-page-showcase">
+          <Showcase artistId={artistId} />
+        </div>
       </div>
     );
 

@@ -3,6 +3,7 @@ import ArtistLandingPage from './ArtistLandingPage';
 import ArtPage from './ArtPage';
 import ConsumerLandingPage from './ConsumerLandingPage';
 import ArtistPage from './ArtistPage';
+import TransactionPage from './TransactionPage';
 
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'

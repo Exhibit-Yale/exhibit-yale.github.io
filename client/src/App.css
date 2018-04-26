@@ -66,11 +66,11 @@
   font-size: 14px;
 }
 
-.art-page-hero {
+.art-page-hero, .artist-page-hero {
   padding: 20px 0;
 }
 
-.art-page-title {
+.art-page-title, .artist-page-title, .transaction-logistics {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -81,14 +81,59 @@
   margin: 0 auto;
 }
 
-.art-page-showcase {
+.art-page-showcase, .artist-page-showcase {
   width: 80%;
   margin: 0 auto;
+}
+
+.artist-page-name {
+  color: #6c63ff;
+  font-size: 63px;
 }
 
 .artist-container {
   width: 80%;
   margin: 0 auto;
+}
+
+.transaction-container {
+  padding: 100px;
+}
+
+.transaction-modal-container {
+  padding: 30px;
+}
+
+.transaction-logistics {
+  padding: 20px;
+}
+
+.transaction-logistics .form-row {
+  margin-bottom: 30px;
+}
+
+.transaction-logistics-label p, .transaction-logistics-label a {
+  font-size: 36px;
+  color: #6c63ff;
+}
+
+.transaction-art {
+  border-left: 1px solid grey;
+  padding: 20px;
+  text-align: left;
+}
+
+.transaction-art-name, .transaction-art-price {
+  display: inline-block;
+}
+
+.transaction-art-price {
+  text-align: right;
+}
+
+.transaction-art-img {
+  width: 100%;
+  /* margin: 0 auto; */
 }
 
 @keyframes App-logo-spin {
