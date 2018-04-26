@@ -65,7 +65,7 @@ class ConsumerLandingPage extends Component {
                       <input type="email" className="form-control form-control-lg" placeholder="Enter your email..." value={this.state.email} onChange={this.handleChange} />
                     </div>
                     <div className="col-12 col-md-3">
-                      <button type="submit" className="btn btn-block btn-lg btn-primary">Update me!</button>
+                      <button type="submit" className="btn btn-block btn-lg btn-primary update-btn">Update me!</button>
                     </div>
                   </div>
                 </form>

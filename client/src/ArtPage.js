@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Showcase from './Showcase';
+import TransactionPage from './TransactionPage';
 
 class ArtPage extends Component {
   // artId = {id: str}
@@ -21,8 +23,15 @@ class ArtPage extends Component {
     .catch(err => console.log(err));
   }
 
-  handleClick = (e) => {
-    e.preventDefault();
+  componentDidUpdate = () => {
+    console.log('componentDidUpdate');
+    fetch('/art/details?id=' + this.props.artId)
+    .then(resp => resp.json())
+    .then(resp => {
+      console.log(resp);
+      this.setState({ art: resp.art});
+    })
+    .catch(err => console.log(err));
   }
 
   render() {
@@ -46,7 +55,7 @@ class ArtPage extends Component {
                 <div>
                   <h5>Price: ${art.price}</h5>
                 </div>
-                <div className="btn btn-primary sign-up-btn" onClick={this.handleClick}>Buy now!</div>
+                <Link to={"/transaction/"+art.id}><div className="btn btn-primary sign-up-btn">Buy now!</div></Link>
               </div>
             </div>
           </div>

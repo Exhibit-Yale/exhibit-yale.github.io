@@ -21,13 +21,13 @@ class TransactionPage extends Component {
       })
       .catch(err => console.log(err));
       
-    fetch('/artist/details?id=' + this.props.artistId)
-      .then(resp => resp.json())
-      .then(resp => {
-        console.log(resp);
-        this.setState({ artist: resp.artist});
-      })
-      .catch(err => console.log(err));
+    // fetch('/artist/details?id=' + this.props.artistId)
+    //   .then(resp => resp.json())
+    //   .then(resp => {
+    //     console.log(resp);
+    //     this.setState({ artist: resp.artist});
+    //   })
+    //   .catch(err => console.log(err));
   }
 
   handleChildCompletion = (value) => {

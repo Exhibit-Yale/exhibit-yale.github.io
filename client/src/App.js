@@ -5,6 +5,7 @@ import ArtistLandingPage from './ArtistLandingPage';
 import ArtPage from './ArtPage';
 import ConsumerLandingPage from './ConsumerLandingPage';
 import ArtistPage from './ArtistPage';
+import TransactionPage from './TransactionPage';
 
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -25,10 +26,10 @@ class App extends Component {
       <div>
         <nav className="navbar navbar-light bg-light static-top">
           <div className="container">
-            <a className="navbar-brand" href="#"><span className="company-name">Exhibit</span></a>
+            <Link to='/' className="navbar-brand"><span className="company-name">Exhibit</span></Link>
             <div className="audience-toggle"> 
               <Link to='/'><span>Artists</span></Link>
-              <Link to='/consumer'>Consumers</Link>
+              <Link to='/consumer'><span>Consumers</span></Link>
             </div>
           </div>
         </nav>
@@ -38,6 +39,7 @@ class App extends Component {
           <Route exact path='/consumer' component={ConsumerLandingPage}/>
           <Route path='/art/:id' component={ArtPageRouter}/>
           <Route path='/artist/:id' component={ArtistPageRouter}/>
+          <Route path='/transaction/:id' component={TransactionPageRouter}/>
         </Switch>
       
         <footer className="footer">
@@ -68,5 +70,9 @@ const ArtistPageRouter = (props) => {
 
 const ArtPageRouter = (props) => {
   return (<ArtPage artId={parseInt(props.match.params.id)} />);
+}
+
+const TransactionPageRouter = (props) => {
+  return (<TransactionPage artId={parseInt(props.match.params.id)} />);
 }
 export default App;

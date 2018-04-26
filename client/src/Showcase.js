@@ -49,7 +49,7 @@ class Showcase extends Component {
       <div className="showcase-container">
         {showArtist && 
         <div className="showcase-bio">
-          <h1>{artist.name}</h1>
+          <Link to={"/artist/" + artist.id} className="showcase-bio-name"><h1>{artist.name}</h1></Link>
           <p>{artist.bio}</p>
         </div>
         }

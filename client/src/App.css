@@ -38,6 +38,10 @@
   border-left: 1px solid grey;
 }
 
+.showcase-bio-name, .showcase-bio-name:hover {
+  text-decoration: none;
+  color: black;
+}
 .showcase-bio-pic {
   /* border-radius: 50%; */
   width: 100%;
@@ -139,6 +143,10 @@
 .transaction-art-img {
   width: 100%;
   /* margin: 0 auto; */
+}
+
+.update-btn {
+  background-color: #6c63ff;
 }
 
 @keyframes App-logo-spin {

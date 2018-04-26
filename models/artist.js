@@ -10,10 +10,9 @@ getAllArtists = (db) => {
 }
 
 getArtistDetails = (db, artistId) => {
-  // TODO fix this for 1 row
   return new Promise((resolve, reject) => {
     db.query(
-      'SELECT name, email, insta, picture_link as pfp, bio FROM artist WHERE artist.id = $1',
+      'SELECT id, name, email, insta, picture_link as pfp, bio FROM artist WHERE artist.id = $1',
       [artistId]
     ).then(resp => {
       resolve(resp.rows[0]);
