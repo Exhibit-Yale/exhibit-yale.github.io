@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TransactionPage from './TransactionPage';
 
 class ConsumerLandingPage extends Component {
   

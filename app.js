@@ -11,6 +11,7 @@ var tasks = require('./routes/tasks');
 var art = require('./routes/art');
 var artist = require('./routes/artist');
 var consumer = require('./routes/consumer');
+var transaction = require('./routes/transaction');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use('/tasks', tasks);
 app.use('/art', art);
 app.use('/artist', artist);
 app.use('/consumer', consumer);
+app.use('/transaction', transaction);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
