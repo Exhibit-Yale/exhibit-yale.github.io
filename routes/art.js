@@ -30,10 +30,8 @@ router.get('/byArtist', (req, res) => {
 /* GET returns art details by id */
 router.get('/details', (req, res) => {
   const db = req.app.get('db');
-
-  artModels.getArtDetails(db)
+  artModels.getArtDetails(db, req.query.id)
   .then(art => {
-    // console.log(art);
     res.json({ art: art });
   })
   .catch(err => res.status(400).send({ error: err }));

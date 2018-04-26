@@ -52,16 +52,7 @@ class TransactionPage extends Component {
       <div>
         <section className="hero text-center bg-light">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-6">
-              </div>
-              <div className="col-lg-6">
-                <div className="testimonial-item mx-auto mb-5 mb-lg-0">
-                </div>
-              </div>
-              {this.renderProgress(this.state.child)}
-              
-            </div>
+          {this.renderProgress(this.state.child)}
           </div>
         </section>
       </div>

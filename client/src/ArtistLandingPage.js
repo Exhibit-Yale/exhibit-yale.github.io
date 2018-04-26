@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ArtPage from './ArtPage';
+import ArtistPage from './ArtistPage';
 
 class ArtistLandingPage extends Component {
   constructor(props) {
@@ -21,7 +23,7 @@ class ArtistLandingPage extends Component {
               </div>
             </div>
           </div>
-        </header>
+        </header> 
 
         <section className="features-icons bg-light text-center">
           <div className="container">
