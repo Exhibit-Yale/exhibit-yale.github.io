@@ -51,13 +51,14 @@ class Showcase extends Component {
         </div>
         <div className="showcase-carousel">
           <Slider {...sliderSettings}>
-            {art.map(art => (
+            {art.map(art => {
+              return (
               <div className="showcase-img-container" key={art.id}>
-                <img className="showcase-img" src={art.picture_link}  />
+                <img className="showcase-img" src={process.env.PUBLIC_URL + art.picture_link}  />
                 <div className="showcase-img-name">{art.name}</div>
                 <div className="div">${art.price}</div>
               </div>
-            ))}
+            )})}
           </Slider>
         </div>
       </div>
