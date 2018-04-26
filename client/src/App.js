@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import {Switch, Route} from 'react-router';
+import {Link} from 'react-router-dom';
 import ArtistLandingPage from './ArtistLandingPage';
 import ArtPage from './ArtPage';
 import ConsumerLandingPage from './ConsumerLandingPage';
 import ArtistPage from './ArtistPage';
-import TransactionPage from './TransactionPage';
 
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -15,28 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      audience: 'artist', // ['artist', 'patron']
-      art: [] // [{ id: str, artistName: str, pfp: str (link), picture: str (link), is_available: bool }]
     }
-  }
-
-  componentDidMount = () => {
-    console.log('componentDidMount');
-  //   const { email, isLoggedIn } = this.state;
-    fetch('/art')
-    .then(resp => resp.json())
-    .then(resp => {
-      console.log(resp);
-      this.setState({ arts: resp.arts});
-    })
-    .catch(err => console.log(err));
-  }
-  
-  toggleAudience = () => {
-    const { audience } = this.state;
-    this.setState({
-      audience: audience === 'artist' ? 'patron' : 'artist'
-    });
   }
 
   render() {
@@ -46,15 +26,19 @@ class App extends Component {
         <nav className="navbar navbar-light bg-light static-top">
           <div className="container">
             <a className="navbar-brand" href="#"><span className="company-name">Exhibit</span></a>
-            <div className="audience-toggle">
-              <a className="" href="#" onClick={this.toggleAudience} style={{ fontWeight: audience === 'artist' ? '600' : '' }}>Artists</a>
-              <a className="" href="#" onClick={this.toggleAudience} style={{ fontWeight: audience === 'patron' ? '600' : '' }}>Patrons</a>
+            <div className="audience-toggle"> 
+              <Link to='/'><span>Artists</span></Link>
+              <Link to='/consumer'>Consumers</Link>
             </div>
           </div>
         </nav>
-        {audience === 'artist' ? 
-          <ArtistLandingPage /> : <ConsumerLandingPage />
-        }
+
+        <Switch>
+          <Route exact path='/' component={ArtistLandingPage}/>
+          <Route exact path='/consumer' component={ConsumerLandingPage}/>
+          <Route path='/art/:id' component={ArtPageRouter}/>
+          <Route path='/artist/:id' component={ArtistPageRouter}/>
+        </Switch>
       
         <footer className="footer">
           <div className="container">
@@ -78,5 +62,11 @@ class App extends Component {
 ;
   }
 }
+const ArtistPageRouter = (props) => {
+  return (<ArtistPage artistId={parseInt(props.match.params.id)} />);
+}
 
+const ArtPageRouter = (props) => {
+  return (<ArtPage artId={parseInt(props.match.params.id)} />);
+}
 export default App;

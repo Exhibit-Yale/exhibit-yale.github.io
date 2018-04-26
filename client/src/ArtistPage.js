@@ -49,7 +49,7 @@ class ArtistPage extends Component {
           </div>
         </section>
         <div className="art-page-showcase">
-          <Showcase artistId={artistId} />
+          <Showcase artistId={artistId} showArtist={false} />
         </div>
       </div>
     );
