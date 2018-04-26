@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './vendor/slick/slick.css'
 import './vendor/slick/slick-theme.css'
@@ -56,11 +57,13 @@ class Showcase extends Component {
           <Slider {...sliderSettings}>
             {art.map(art => {
               return (
-              <div className="showcase-img-container" key={art.id}>
-                <img className="showcase-img" src={process.env.PUBLIC_URL + art.picture_link}  />
-                <div className="showcase-img-name">{art.name}</div>
-                <div className="div">${art.price}</div>
-              </div>
+              <Link to={`/art/${art.id}`}>
+                <div className="showcase-img-container" key={art.id}>
+                  <img className="showcase-img" src={process.env.PUBLIC_URL + art.picture_link}  />
+                  <div className="showcase-img-name">{art.name}</div>
+                  <div className="div">${art.price}</div>
+                </div>
+              </Link>
             )})}
           </Slider>
         </div>

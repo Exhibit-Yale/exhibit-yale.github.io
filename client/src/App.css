@@ -55,6 +55,11 @@
   padding: 8px;
 }
 
+.showcase-img-container div {
+  /* text-decoration: none; */
+  color: #000;
+}
+
 .showcase-img {
   height: 250px;
 }
