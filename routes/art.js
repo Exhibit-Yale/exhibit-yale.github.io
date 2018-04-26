@@ -18,8 +18,6 @@ router.get('/', (req, res) => {
 /* GET returns art by artist id */
 router.get('/byArtist', (req, res) => {
   const db = req.app.get('db');
-  console.log('byArtist');
-  console.log(req.query);
 
   artModels.getArtByArtist(db, req.query.id)
   .then(arts => {

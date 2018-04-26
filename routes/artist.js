@@ -3,17 +3,15 @@ var router = express.Router();
 
 const artistModels = require('../models/artist.js');
 
-// #<{(| GET returns all art and artists |)}>#
-// router.get('/', (req, res) => {
-//   const db = req.app.get('db');
-//
-//   artModels.getAllArt(db)
-//   .then(arts => {
-//     console.log(arts);
-//     res.json({ arts: arts });
-//   })
-//   .catch(err => res.status(400).send({ error: err }));
-// })
+/* GET returns all art and artists */
+router.get('/', (req, res) => {
+  const db = req.app.get('db');
+  artistModels.getAllArtists(db)
+  .then(artists => {
+    res.json({ artists });
+  })
+  .catch(err => res.status(400).send({ error: err }));
+})
 
 /* GET returns artist details by id */
 router.get('/details', (req, res) => {
