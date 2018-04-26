@@ -3,7 +3,7 @@ getAllArt = (db) => {
     db.query(
       'SELECT art.id as id, artist.name as artist_name, artist.picture_link as pfp, art.name as art_name, art.is_available, art.picture_link as art_picture FROM artist INNER JOIN art ON artist.id = art.artist_id'
     ).then(resp => {
-      console.log(resp);
+      // console.log(resp);
       resolve(resp.rows.map(row => ({
         id: row.id,
         artistName: row.artist_name,
@@ -18,25 +18,23 @@ getAllArt = (db) => {
 }
 
 getArtByArtist = (db, artistId) => {
-  console.log(artistId);
+  console.log('getArtByArtist');
   return new Promise((resolve, reject) => {
     db.query(
-      'SELECT id, name, picture_link as art_picture, is_available WHERE artist_id = $1',
+      'SELECT id, name, picture_link, is_available FROM art WHERE artist_id = $1',
       [artistId]
     ).then(resp => {
-      resolve(resp.rows.map(row => ({
-        id: row.id,
-        artName: row.art_name,
-        picture: row.art_picture,
-        is_available: row.is_available
-      })));
+      console.log(resp.rows);
+      resolve(resp.rows);
     })
-    .catch(err => reject('Query to get tasks failed'));
+    .catch(console.log);
+    // .catch(err => reject('Query to get tasks failed'));
   })
 }
 
+
 getArtDetails = (db, artId) => {
-  console.log(artId);
+  // console.log(artId);
   // TODO fix this for 1 row
   return new Promise((resolve, reject) => {
     db.query(

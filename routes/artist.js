@@ -18,12 +18,13 @@ const artistModels = require('../models/artist.js');
 /* GET returns artist details by id */
 router.get('/details', (req, res) => {
   const db = req.app.get('db');
-
-  artModels.getArtistDetails(db)
-  .then(art => {
-    console.log(art);
-    res.json({ artist: artist });
-  })
-  .catch(err => res.status(400).send({ error: err }));
+  artistModels.getArtistDetails(db, req.query.id)
+    .then(artist => {
+      res.json({ artist });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).send({ error: err })
+    });
 })
 module.exports = router;

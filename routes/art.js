@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
   artModels.getAllArt(db)
   .then(arts => {
-    console.log(arts);
+    // console.log(arts);
     res.json({ arts: arts });
   })
   .catch(err => res.status(400).send({ error: err }));
@@ -18,10 +18,12 @@ router.get('/', (req, res) => {
 /* GET returns art by artist id */
 router.get('/byArtist', (req, res) => {
   const db = req.app.get('db');
+  console.log('byArtist');
+  console.log(req.query);
 
-  artModels.getAllArt(db)
+  artModels.getArtByArtist(db, req.query.id)
   .then(arts => {
-    console.log(arts);
+    // console.log(arts);
     res.json({ arts: arts });
   })
   .catch(err => res.status(400).send({ error: err }));
@@ -33,7 +35,7 @@ router.get('/details', (req, res) => {
 
   artModels.getArtDetails(db)
   .then(art => {
-    console.log(art);
+    // console.log(art);
     res.json({ art: art });
   })
   .catch(err => res.status(400).send({ error: err }));
