@@ -18,7 +18,7 @@ router.get('/details', (req, res) => {
   const db = req.app.get('db');
   artistModels.getArtistDetails(db, req.query.id)
     .then(artist => {
-      res.json({ artist });
+      res.json({ artist: artist });
     })
     .catch(err => {
       console.log(err);
