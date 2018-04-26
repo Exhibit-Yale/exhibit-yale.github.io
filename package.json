@@ -47,6 +47,7 @@
         "react-slick": "^0.23.1",
         "serve-favicon": "~2.4.5",
         "simple-line-icons": "^2.4.1",
+        "slick-carousel": "^1.8.1",
         "uuid": "^3.2.1"
     },
     "devDependencies": {

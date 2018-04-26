@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -20,6 +19,45 @@
 
 .App-intro {
   font-size: large;
+}
+
+.showcase-container {
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+}
+
+.showcase-bio {
+  padding: 36px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.showcase-bio-pic {
+  /* border-radius: 50%; */
+  width: 100%;
+}
+
+.showcase-carousel {
+  width: 70%;
+}
+
+.showcase-img-container {
+  padding: 8px;
+}
+
+.showcase-img {
+  height: 300px;
+}
+
+.showcase-img-name {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 @keyframes App-logo-spin {

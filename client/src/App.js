@@ -3,6 +3,7 @@ import ArtistLandingPage from './ArtistLandingPage';
 import ArtPage from './ArtPage';
 import ConsumerLandingPage from './ConsumerLandingPage';
 import ArtistPage from './ArtistPage';
+import Showcase from './Showcase';
 
 import './vendor/bootstrap/css/bootstrap.min.css'
 import './vendor/font-awesome/css/font-awesome.min.css'
@@ -21,7 +22,6 @@ class App extends Component {
 
   componentDidMount = () => {
     console.log('componentDidMount');
-  //   const { email, isLoggedIn } = this.state;
     fetch('/art')
     .then(resp => resp.json())
     .then(resp => {
