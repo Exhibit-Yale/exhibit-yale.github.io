@@ -20,14 +20,6 @@ class TransactionPage extends Component {
         this.setState({ art: resp.art});
       })
       .catch(err => console.log(err));
-      
-    // fetch('/artist/details?id=' + this.props.artistId)
-    //   .then(resp => resp.json())
-    //   .then(resp => {
-    //     console.log(resp);
-    //     this.setState({ artist: resp.artist});
-    //   })
-    //   .catch(err => console.log(err));
   }
 
   handleChildCompletion = (value) => {
@@ -37,7 +29,7 @@ class TransactionPage extends Component {
   renderProgress = (state) => {
     switch(state) {
         case 0:
-            return <FirstPage onCompletion={this.handleChildCompletion}/>;
+            return <FirstPage onCompletion={this.handleChildCompletion} art={this.state.art}/>;
         case 1:
             return <SecondPage onCompletion={this.handleChildCompletion}/>;
         case 2:
@@ -81,24 +73,24 @@ class FirstPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange = (type, event) => {
-     this.setState({[type]: event.target.value});
+   this.setState({[type]: event.target.value});
   }
   handleSubmit(event) {
     event.preventDefault();
-    // TODO: Implement transaction route on backed & error-checking
-    // fetch('/transaction/add', { 
-    //   method: "POST",
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({email: this.state.email, phone: this.state.phone, venmo: this.state.venmo})
-    //   })
-    // .then(resp => {
-    //   console.log(resp);
-    //   this.props.OnCompletion(true);
-    // })
-    // .catch(err => console.log(err));
-    this.props.onCompletion(1);
+    // TODO error checking
+    fetch('/transaction/add', { 
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      // TODO hardcoded price
+      body: JSON.stringify({email: this.state.email, phone: this.state.phone, venmo: this.state.venmo, artId: this.props.art.id, price: this.props.art.price})
+      })
+    .then(resp => {
+      console.log(resp);
+      this.props.onCompletion(1);
+    })
+    .catch(err => console.log(err));
   }
   render() {
     return (
@@ -116,7 +108,7 @@ class FirstPage extends Component {
             <label htmlFor="Venmo Handle">Venmo Handle</label>
             <input type="text" className="form-control form-control-lg" placeholder="@yalie123" value={this.state.venmo} onChange={(event) => this.handleChange('venmo', event)} />
           </div>
-          <button type="submit" className="btn btn-block btn-lg btn-primary">Submit</button>
+          <button type="submit" className="btn btn-block btn-lg btn-primary transaction-btn">Submit</button>
         </form>
       </div>
     );

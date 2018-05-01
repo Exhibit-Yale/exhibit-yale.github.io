@@ -2,7 +2,7 @@ addConsumer = (db, email) => {
   return new Promise((resolve, reject) => {
     db.query('INSERT INTO consumer (email) VALUES ($1)', [email])
     .then(resp => {
-      resolve(resp)
+      resolve(resp);
     })
     .catch(err => {
       console.log(err);

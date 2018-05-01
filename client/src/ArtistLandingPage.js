@@ -19,7 +19,7 @@ class ArtistLandingPage extends Component {
                 <p className="mb-5 slogan-subtext">sell your art to Yalies on Exhibit. we'll handle the business side 😉</p>
               </div>
               <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                  <div className="btn btn-primary sign-up-btn"><a href="https://ryanlim4.typeform.com/to/ODteOA" target="_blank">Sell your art now!</a></div>
+                  <a href="https://ryanlim4.typeform.com/to/ODteOA" target="_blank"><div className="btn btn-primary sign-up-btn">Sell your art now!</div></a>
               </div>
             </div>
           </div>

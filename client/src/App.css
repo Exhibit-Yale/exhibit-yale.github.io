@@ -149,6 +149,10 @@
   background-color: #6c63ff;
 }
 
+.transaction-btn {
+  background-color: #6c63ff;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
